@@ -7,10 +7,10 @@ license = "MIT"
 repository = "https://github.com/ovr/tinkoff-invest-rust"
 
 [dependencies]
-prost = "0.11"
-prost-types = "0.11"
-uuid = { version = "0.8", features = ["v4"] }
-tonic = { version = "0.8.0", features = ["tls", "tls-roots", "gzip"]}
+prost = "0.12.3"
+prost-types = "0.12.3"
+uuid = { version = "1.7.0", features = ["v4"] }
+tonic = { version = "0.11.0", features = ["tls", "tls-roots", "gzip"]}
 
 [dev-dependencies]
 async-stream = "0.3"
