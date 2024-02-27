@@ -18,7 +18,7 @@ use tinkoff_invest_api::{
 
 #[tokio::main]
 async fn main() -> TIResult<()> {
-    let service = TinkoffInvestService::new(env::var("TINKOFF_SDK_TESTING_ENV").unwrap());
+    let service = TinkoffInvestService::new(env::var("TNK_API_KEY").unwrap());
     let channel = service.create_channel().await?;
     let mut marketdata_stream = service.marketdata_stream(channel).await?;
 

@@ -12,6 +12,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "../investAPI/src/docs/contracts/sandbox.proto",
                 "../investAPI/src/docs/contracts/stoporders.proto",
                 "../investAPI/src/docs/contracts/users.proto",
+                "../investAPI/src/docs/contracts/common.proto",
+
             ],
             &["../investAPI/src/docs/contracts/"],
         )?;

@@ -12,7 +12,7 @@ pub struct MoneyValue {
     #[prost(int32, tag = "3")]
     pub nano: i32,
 }
-/// Котировка - денежная сумма без указания валюты
+/// Котировка — денежная сумма без указания валюты
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Quotation {
@@ -137,21 +137,39 @@ impl SecurityTradingStatus {
             SecurityTradingStatus::NotAvailableForTrading => {
                 "SECURITY_TRADING_STATUS_NOT_AVAILABLE_FOR_TRADING"
             }
-            SecurityTradingStatus::OpeningPeriod => "SECURITY_TRADING_STATUS_OPENING_PERIOD",
-            SecurityTradingStatus::ClosingPeriod => "SECURITY_TRADING_STATUS_CLOSING_PERIOD",
-            SecurityTradingStatus::BreakInTrading => "SECURITY_TRADING_STATUS_BREAK_IN_TRADING",
-            SecurityTradingStatus::NormalTrading => "SECURITY_TRADING_STATUS_NORMAL_TRADING",
-            SecurityTradingStatus::ClosingAuction => "SECURITY_TRADING_STATUS_CLOSING_AUCTION",
-            SecurityTradingStatus::DarkPoolAuction => "SECURITY_TRADING_STATUS_DARK_POOL_AUCTION",
-            SecurityTradingStatus::DiscreteAuction => "SECURITY_TRADING_STATUS_DISCRETE_AUCTION",
+            SecurityTradingStatus::OpeningPeriod => {
+                "SECURITY_TRADING_STATUS_OPENING_PERIOD"
+            }
+            SecurityTradingStatus::ClosingPeriod => {
+                "SECURITY_TRADING_STATUS_CLOSING_PERIOD"
+            }
+            SecurityTradingStatus::BreakInTrading => {
+                "SECURITY_TRADING_STATUS_BREAK_IN_TRADING"
+            }
+            SecurityTradingStatus::NormalTrading => {
+                "SECURITY_TRADING_STATUS_NORMAL_TRADING"
+            }
+            SecurityTradingStatus::ClosingAuction => {
+                "SECURITY_TRADING_STATUS_CLOSING_AUCTION"
+            }
+            SecurityTradingStatus::DarkPoolAuction => {
+                "SECURITY_TRADING_STATUS_DARK_POOL_AUCTION"
+            }
+            SecurityTradingStatus::DiscreteAuction => {
+                "SECURITY_TRADING_STATUS_DISCRETE_AUCTION"
+            }
             SecurityTradingStatus::OpeningAuctionPeriod => {
                 "SECURITY_TRADING_STATUS_OPENING_AUCTION_PERIOD"
             }
             SecurityTradingStatus::TradingAtClosingAuctionPrice => {
                 "SECURITY_TRADING_STATUS_TRADING_AT_CLOSING_AUCTION_PRICE"
             }
-            SecurityTradingStatus::SessionAssigned => "SECURITY_TRADING_STATUS_SESSION_ASSIGNED",
-            SecurityTradingStatus::SessionClose => "SECURITY_TRADING_STATUS_SESSION_CLOSE",
+            SecurityTradingStatus::SessionAssigned => {
+                "SECURITY_TRADING_STATUS_SESSION_ASSIGNED"
+            }
+            SecurityTradingStatus::SessionClose => {
+                "SECURITY_TRADING_STATUS_SESSION_CLOSE"
+            }
             SecurityTradingStatus::SessionOpen => "SECURITY_TRADING_STATUS_SESSION_OPEN",
             SecurityTradingStatus::DealerNormalTrading => {
                 "SECURITY_TRADING_STATUS_DEALER_NORMAL_TRADING"
@@ -178,15 +196,21 @@ impl SecurityTradingStatus {
             "SECURITY_TRADING_STATUS_CLOSING_AUCTION" => Some(Self::ClosingAuction),
             "SECURITY_TRADING_STATUS_DARK_POOL_AUCTION" => Some(Self::DarkPoolAuction),
             "SECURITY_TRADING_STATUS_DISCRETE_AUCTION" => Some(Self::DiscreteAuction),
-            "SECURITY_TRADING_STATUS_OPENING_AUCTION_PERIOD" => Some(Self::OpeningAuctionPeriod),
+            "SECURITY_TRADING_STATUS_OPENING_AUCTION_PERIOD" => {
+                Some(Self::OpeningAuctionPeriod)
+            }
             "SECURITY_TRADING_STATUS_TRADING_AT_CLOSING_AUCTION_PRICE" => {
                 Some(Self::TradingAtClosingAuctionPrice)
             }
             "SECURITY_TRADING_STATUS_SESSION_ASSIGNED" => Some(Self::SessionAssigned),
             "SECURITY_TRADING_STATUS_SESSION_CLOSE" => Some(Self::SessionClose),
             "SECURITY_TRADING_STATUS_SESSION_OPEN" => Some(Self::SessionOpen),
-            "SECURITY_TRADING_STATUS_DEALER_NORMAL_TRADING" => Some(Self::DealerNormalTrading),
-            "SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING" => Some(Self::DealerBreakInTrading),
+            "SECURITY_TRADING_STATUS_DEALER_NORMAL_TRADING" => {
+                Some(Self::DealerNormalTrading)
+            }
+            "SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING" => {
+                Some(Self::DealerBreakInTrading)
+            }
             "SECURITY_TRADING_STATUS_DEALER_NOT_AVAILABLE_FOR_TRADING" => {
                 Some(Self::DealerNotAvailableForTrading)
             }
@@ -251,7 +275,9 @@ pub struct TradingDay {
     pub closing_auction_end_time: ::core::option::Option<::prost_types::Timestamp>,
     /// Время начала аукциона открытия вечерней сессии в часовом поясе UTC.
     #[prost(message, optional, tag = "9")]
-    pub evening_opening_auction_start_time: ::core::option::Option<::prost_types::Timestamp>,
+    pub evening_opening_auction_start_time: ::core::option::Option<
+        ::prost_types::Timestamp,
+    >,
     /// Время начала вечерней сессии в часовом поясе UTC.
     #[prost(message, optional, tag = "10")]
     pub evening_start_time: ::core::option::Option<::prost_types::Timestamp>,
@@ -295,7 +321,7 @@ pub struct InstrumentRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct InstrumentsRequest {
-    /// Статус запрашиваемых инструментов. Возможные значения: \[InstrumentStatus\](#instrumentstatus)
+    /// Статус запрашиваемых инструментов. Возможные значения: [InstrumentStatus](#instrumentstatus)
     #[prost(enumeration = "InstrumentStatus", tag = "1")]
     pub instrument_status: i32,
 }
@@ -465,7 +491,7 @@ pub struct Option {
     /// Текущий режим торгов инструмента.
     #[prost(enumeration = "SecurityTradingStatus", tag = "21")]
     pub trading_status: i32,
-    /// Реальная площадка исполнения расчётов (биржа). Допустимые значения: [REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS]
+    /// Реальная площадка исполнения расчётов (биржа). Допустимые значения: \[REAL_EXCHANGE_MOEX, REAL_EXCHANGE_RTS\]
     #[prost(enumeration = "RealExchange", tag = "31")]
     pub real_exchange: i32,
     /// Направление опциона.
@@ -612,7 +638,7 @@ pub struct Bond {
     /// Isin-идентификатор инструмента.
     #[prost(string, tag = "4")]
     pub isin: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "5")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -767,7 +793,7 @@ pub struct Currency {
     /// Isin-идентификатор инструмента.
     #[prost(string, tag = "4")]
     pub isin: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "5")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -874,7 +900,7 @@ pub struct Etf {
     /// Isin-идентификатор инструмента.
     #[prost(string, tag = "4")]
     pub isin: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "5")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -993,7 +1019,7 @@ pub struct Future {
     /// Класс-код (секция торгов).
     #[prost(string, tag = "3")]
     pub class_code: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "4")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -1121,7 +1147,7 @@ pub struct Share {
     /// Isin-идентификатор инструмента.
     #[prost(string, tag = "4")]
     pub isin: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "5")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -1190,7 +1216,7 @@ pub struct Share {
     /// Признак наличия дивидендной доходности.
     #[prost(bool, tag = "29")]
     pub div_yield_flag: bool,
-    /// Тип акции. Возможные значения: \[ShareType\](<https://tinkoff.github.io/investAPI/instruments#sharetype>)
+    /// Тип акции. Возможные значения: [ShareType](<https://tinkoff.github.io/investAPI/instruments#sharetype>)
     #[prost(enumeration = "ShareType", tag = "30")]
     pub share_type: i32,
     /// Шаг цены.
@@ -1318,7 +1344,7 @@ pub struct Instrument {
     /// Isin-идентификатор инструмента.
     #[prost(string, tag = "4")]
     pub isin: ::prost::alloc::string::String,
-    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: \[лот\](<https://tinkoff.github.io/investAPI/glossary#lot>)
+    /// Лотность инструмента. Возможно совершение операций только на количества ценной бумаги, кратные параметру *lot*. Подробнее: [лот](<https://tinkoff.github.io/investAPI/glossary#lot>)
     #[prost(int32, tag = "5")]
     pub lot: i32,
     /// Валюта расчётов.
@@ -2342,7 +2368,9 @@ impl OptionSettlementType {
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "OPTION_EXECUTION_TYPE_UNSPECIFIED" => Some(Self::OptionExecutionTypeUnspecified),
+            "OPTION_EXECUTION_TYPE_UNSPECIFIED" => {
+                Some(Self::OptionExecutionTypeUnspecified)
+            }
             "OPTION_EXECUTION_TYPE_PHYSICAL_DELIVERY" => {
                 Some(Self::OptionExecutionTypePhysicalDelivery)
             }
@@ -2400,7 +2428,7 @@ impl InstrumentIdType {
 pub enum InstrumentStatus {
     /// Значение не определено.
     Unspecified = 0,
-    /// Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API.
+    /// Базовый список инструментов (по умолчанию). Инструменты доступные для торговли через TINKOFF INVEST API. Cейчас списки бумаг, доступных из api и других интерфейсах совпадают (за исключением внебиржевых бумаг), но в будущем возможны ситуации, когда списки инструментов будут отличаться
     Base = 1,
     /// Список всех инструментов.
     All = 2,
@@ -2576,7 +2604,9 @@ impl EditFavoritesActionType {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            EditFavoritesActionType::Unspecified => "EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED",
+            EditFavoritesActionType::Unspecified => {
+                "EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED"
+            }
             EditFavoritesActionType::Add => "EDIT_FAVORITES_ACTION_TYPE_ADD",
             EditFavoritesActionType::Del => "EDIT_FAVORITES_ACTION_TYPE_DEL",
         }
@@ -2632,13 +2662,12 @@ impl RealExchange {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum RiskLevel {
-    Unspecified = 0,
-    /// Низкий уровень риска
-    Low = 1,
-    /// Средний уровень риска
-    Moderate = 2,
     /// Высокий уровень риска
-    High = 3,
+    High = 0,
+    /// Средний уровень риска
+    Moderate = 1,
+    /// Низкий уровень риска
+    Low = 2,
 }
 impl RiskLevel {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -2647,19 +2676,17 @@ impl RiskLevel {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            RiskLevel::Unspecified => "RISK_LEVEL_UNSPECIFIED",
-            RiskLevel::Low => "RISK_LEVEL_LOW",
-            RiskLevel::Moderate => "RISK_LEVEL_MODERATE",
             RiskLevel::High => "RISK_LEVEL_HIGH",
+            RiskLevel::Moderate => "RISK_LEVEL_MODERATE",
+            RiskLevel::Low => "RISK_LEVEL_LOW",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "RISK_LEVEL_UNSPECIFIED" => Some(Self::Unspecified),
-            "RISK_LEVEL_LOW" => Some(Self::Low),
-            "RISK_LEVEL_MODERATE" => Some(Self::Moderate),
             "RISK_LEVEL_HIGH" => Some(Self::High),
+            "RISK_LEVEL_MODERATE" => Some(Self::Moderate),
+            "RISK_LEVEL_LOW" => Some(Self::Low),
             _ => None,
         }
     }
@@ -2667,8 +2694,8 @@ impl RiskLevel {
 /// Generated client implementations.
 pub mod instruments_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct InstrumentsServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -2677,7 +2704,7 @@ pub mod instruments_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -2712,8 +2739,9 @@ pub mod instruments_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             InstrumentsServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -2732,464 +2760,825 @@ pub mod instruments_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод получения расписания торгов торговых площадок.
         pub async fn trading_schedules(
             &mut self,
             request: impl tonic::IntoRequest<super::TradingSchedulesRequest>,
-        ) -> Result<tonic::Response<super::TradingSchedulesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::TradingSchedulesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/TradingSchedules",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "TradingSchedules",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения облигации по её идентификатору.
         pub async fn bond_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::BondResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::BondResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/BondBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "BondBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка облигаций.
         pub async fn bonds(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::BondsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::BondsResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Bonds",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Bonds",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения графика выплат купонов по облигации.
         pub async fn get_bond_coupons(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBondCouponsRequest>,
-        ) -> Result<tonic::Response<super::GetBondCouponsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetBondCouponsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBondCoupons",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetBondCoupons",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения валюты по её идентификатору.
         pub async fn currency_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::CurrencyResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CurrencyResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/CurrencyBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "CurrencyBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка валют.
         pub async fn currencies(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::CurrenciesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CurrenciesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Currencies",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Currencies",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения инвестиционного фонда по его идентификатору.
         pub async fn etf_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::EtfResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::EtfResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/EtfBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "EtfBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка инвестиционных фондов.
         pub async fn etfs(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::EtfsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::EtfsResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Etfs",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Etfs",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения фьючерса по его идентификатору.
         pub async fn future_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::FutureResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::FutureResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/FutureBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "FutureBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка фьючерсов.
         pub async fn futures(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::FuturesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::FuturesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Futures",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Futures",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения опциона по его идентификатору.
         pub async fn option_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::OptionResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::OptionResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "OptionBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Deprecated Метод получения списка опционов.
         pub async fn options(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::OptionsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::OptionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Options",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Options",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка опционов.
         pub async fn options_by(
             &mut self,
             request: impl tonic::IntoRequest<super::FilterOptionsRequest>,
-        ) -> Result<tonic::Response<super::OptionsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::OptionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/OptionsBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "OptionsBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения акции по её идентификатору.
         pub async fn share_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::ShareResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::ShareResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/ShareBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "ShareBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка акций.
         pub async fn shares(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentsRequest>,
-        ) -> Result<tonic::Response<super::SharesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::SharesResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/Shares",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "Shares",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения накопленного купонного дохода по облигации.
         pub async fn get_accrued_interests(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAccruedInterestsRequest>,
-        ) -> Result<tonic::Response<super::GetAccruedInterestsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetAccruedInterestsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAccruedInterests",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetAccruedInterests",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения размера гарантийного обеспечения по фьючерсам.
         pub async fn get_futures_margin(
             &mut self,
             request: impl tonic::IntoRequest<super::GetFuturesMarginRequest>,
-        ) -> Result<tonic::Response<super::GetFuturesMarginResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetFuturesMarginResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFuturesMargin",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetFuturesMargin",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения основной информации об инструменте.
         pub async fn get_instrument_by(
             &mut self,
             request: impl tonic::IntoRequest<super::InstrumentRequest>,
-        ) -> Result<tonic::Response<super::InstrumentResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::InstrumentResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetInstrumentBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetInstrumentBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод для получения событий выплаты дивидендов по инструменту.
         pub async fn get_dividends(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDividendsRequest>,
-        ) -> Result<tonic::Response<super::GetDividendsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetDividendsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetDividends",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetDividends",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения актива по его идентификатору.
         pub async fn get_asset_by(
             &mut self,
             request: impl tonic::IntoRequest<super::AssetRequest>,
-        ) -> Result<tonic::Response<super::AssetResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::AssetResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssetBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetAssetBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка активов. Метод работает для всех инструментов, за исключением срочных - опционов и фьючерсов.
         pub async fn get_assets(
             &mut self,
             request: impl tonic::IntoRequest<super::AssetsRequest>,
-        ) -> Result<tonic::Response<super::AssetsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::AssetsResponse>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetAssets",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetAssets",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка избранных инструментов.
         pub async fn get_favorites(
             &mut self,
             request: impl tonic::IntoRequest<super::GetFavoritesRequest>,
-        ) -> Result<tonic::Response<super::GetFavoritesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetFavoritesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetFavorites",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetFavorites",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод редактирования списка избранных инструментов.
         pub async fn edit_favorites(
             &mut self,
             request: impl tonic::IntoRequest<super::EditFavoritesRequest>,
-        ) -> Result<tonic::Response<super::EditFavoritesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::EditFavoritesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/EditFavorites",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "EditFavorites",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка стран.
         pub async fn get_countries(
             &mut self,
             request: impl tonic::IntoRequest<super::GetCountriesRequest>,
-        ) -> Result<tonic::Response<super::GetCountriesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetCountriesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetCountries",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetCountries",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод поиска инструмента.
         pub async fn find_instrument(
             &mut self,
             request: impl tonic::IntoRequest<super::FindInstrumentRequest>,
-        ) -> Result<tonic::Response<super::FindInstrumentResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::FindInstrumentResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/FindInstrument",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "FindInstrument",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка брендов.
         pub async fn get_brands(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBrandsRequest>,
-        ) -> Result<tonic::Response<super::GetBrandsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetBrandsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrands",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetBrands",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения бренда по его идентификатору.
         pub async fn get_brand_by(
             &mut self,
             request: impl tonic::IntoRequest<super::GetBrandRequest>,
-        ) -> Result<tonic::Response<super::Brand>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::Brand>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.InstrumentsService/GetBrandBy",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.InstrumentsService",
+                        "GetBrandBy",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -3327,7 +3716,7 @@ pub struct CandleInstrument {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscribeCandlesResponse {
-    /// Уникальный идентификатор запроса, подробнее: \[tracking_id\](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
+    /// Уникальный идентификатор запроса, подробнее: [tracking_id](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
     #[prost(string, tag = "1")]
     pub tracking_id: ::prost::alloc::string::String,
     /// Массив статусов подписки на свечи.
@@ -3381,7 +3770,7 @@ pub struct OrderBookInstrument {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscribeOrderBookResponse {
-    /// Уникальный идентификатор запроса, подробнее: \[tracking_id\](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
+    /// Уникальный идентификатор запроса, подробнее: [tracking_id](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
     #[prost(string, tag = "1")]
     pub tracking_id: ::prost::alloc::string::String,
     /// Массив статусов подписки на стаканы.
@@ -3432,7 +3821,7 @@ pub struct TradeInstrument {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscribeTradesResponse {
-    /// Уникальный идентификатор запроса, подробнее: \[tracking_id\](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
+    /// Уникальный идентификатор запроса, подробнее: [tracking_id](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
     #[prost(string, tag = "1")]
     pub tracking_id: ::prost::alloc::string::String,
     /// Массив статусов подписки на поток сделок.
@@ -3480,7 +3869,7 @@ pub struct InfoInstrument {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscribeInfoResponse {
-    /// Уникальный идентификатор запроса, подробнее: \[tracking_id\](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
+    /// Уникальный идентификатор запроса, подробнее: [tracking_id](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
     #[prost(string, tag = "1")]
     pub tracking_id: ::prost::alloc::string::String,
     /// Массив статусов подписки на торговый статус.
@@ -3528,7 +3917,7 @@ pub struct LastPriceInstrument {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SubscribeLastPriceResponse {
-    /// Уникальный идентификатор запроса, подробнее: \[tracking_id\](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
+    /// Уникальный идентификатор запроса, подробнее: [tracking_id](<https://tinkoff.github.io/investAPI/grpc#tracking-id>).
     #[prost(string, tag = "1")]
     pub tracking_id: ::prost::alloc::string::String,
     /// Массив статусов подписки на цену последней сделки.
@@ -4019,11 +4408,11 @@ pub enum SubscriptionStatus {
     Success = 1,
     /// Инструмент не найден.
     InstrumentNotFound = 2,
-    /// Некорректный статус подписки, список возможных значений: \[SubscriptionAction\](<https://tinkoff.github.io/investAPI/marketdata#subscriptionaction>).
+    /// Некорректный статус подписки, список возможных значений: [SubscriptionAction](<https://tinkoff.github.io/investAPI/marketdata#subscriptionaction>).
     SubscriptionActionIsInvalid = 3,
     /// Некорректная глубина стакана, доступные значения: 1, 10, 20, 30, 40, 50.
     DepthIsInvalid = 4,
-    /// Некорректный интервал свечей, список возможных значений: \[SubscriptionInterval\](<https://tinkoff.github.io/investAPI/marketdata#subscriptioninterval>).
+    /// Некорректный интервал свечей, список возможных значений: [SubscriptionInterval](<https://tinkoff.github.io/investAPI/marketdata#subscriptioninterval>).
     IntervalIsInvalid = 5,
     /// Превышен лимит на общее количество подписок в рамках стрима, подробнее: [Лимитная политика](<https://tinkoff.github.io/investAPI/limits/>).
     LimitIsExceeded = 6,
@@ -4031,6 +4420,8 @@ pub enum SubscriptionStatus {
     InternalError = 7,
     /// Превышен лимит на количество запросов на подписки в течение установленного отрезка времени
     TooManyRequests = 8,
+    /// Активная подписка не найдена. Ошибка может возникнуть только при отписке от не существующей отписки
+    SubscriptionNotFound = 9,
 }
 impl SubscriptionStatus {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -4041,15 +4432,26 @@ impl SubscriptionStatus {
         match self {
             SubscriptionStatus::Unspecified => "SUBSCRIPTION_STATUS_UNSPECIFIED",
             SubscriptionStatus::Success => "SUBSCRIPTION_STATUS_SUCCESS",
-            SubscriptionStatus::InstrumentNotFound => "SUBSCRIPTION_STATUS_INSTRUMENT_NOT_FOUND",
+            SubscriptionStatus::InstrumentNotFound => {
+                "SUBSCRIPTION_STATUS_INSTRUMENT_NOT_FOUND"
+            }
             SubscriptionStatus::SubscriptionActionIsInvalid => {
                 "SUBSCRIPTION_STATUS_SUBSCRIPTION_ACTION_IS_INVALID"
             }
             SubscriptionStatus::DepthIsInvalid => "SUBSCRIPTION_STATUS_DEPTH_IS_INVALID",
-            SubscriptionStatus::IntervalIsInvalid => "SUBSCRIPTION_STATUS_INTERVAL_IS_INVALID",
-            SubscriptionStatus::LimitIsExceeded => "SUBSCRIPTION_STATUS_LIMIT_IS_EXCEEDED",
+            SubscriptionStatus::IntervalIsInvalid => {
+                "SUBSCRIPTION_STATUS_INTERVAL_IS_INVALID"
+            }
+            SubscriptionStatus::LimitIsExceeded => {
+                "SUBSCRIPTION_STATUS_LIMIT_IS_EXCEEDED"
+            }
             SubscriptionStatus::InternalError => "SUBSCRIPTION_STATUS_INTERNAL_ERROR",
-            SubscriptionStatus::TooManyRequests => "SUBSCRIPTION_STATUS_TOO_MANY_REQUESTS",
+            SubscriptionStatus::TooManyRequests => {
+                "SUBSCRIPTION_STATUS_TOO_MANY_REQUESTS"
+            }
+            SubscriptionStatus::SubscriptionNotFound => {
+                "SUBSCRIPTION_STATUS_SUBSCRIPTION_NOT_FOUND"
+            }
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -4066,6 +4468,9 @@ impl SubscriptionStatus {
             "SUBSCRIPTION_STATUS_LIMIT_IS_EXCEEDED" => Some(Self::LimitIsExceeded),
             "SUBSCRIPTION_STATUS_INTERNAL_ERROR" => Some(Self::InternalError),
             "SUBSCRIPTION_STATUS_TOO_MANY_REQUESTS" => Some(Self::TooManyRequests),
+            "SUBSCRIPTION_STATUS_SUBSCRIPTION_NOT_FOUND" => {
+                Some(Self::SubscriptionNotFound)
+            }
             _ => None,
         }
     }
@@ -4183,8 +4588,8 @@ impl CandleInterval {
 /// Generated client implementations.
 pub mod market_data_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct MarketDataServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -4193,7 +4598,7 @@ pub mod market_data_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -4228,8 +4633,9 @@ pub mod market_data_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             MarketDataServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -4248,132 +4654,246 @@ pub mod market_data_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод запроса исторических свечей по инструменту.
         pub async fn get_candles(
             &mut self,
             request: impl tonic::IntoRequest<super::GetCandlesRequest>,
-        ) -> Result<tonic::Response<super::GetCandlesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetCandlesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetCandles",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetCandles",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод запроса цен последних сделок по инструментам.
         pub async fn get_last_prices(
             &mut self,
             request: impl tonic::IntoRequest<super::GetLastPricesRequest>,
-        ) -> Result<tonic::Response<super::GetLastPricesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetLastPricesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastPrices",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetLastPrices",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения стакана по инструменту.
         pub async fn get_order_book(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOrderBookRequest>,
-        ) -> Result<tonic::Response<super::GetOrderBookResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetOrderBookResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetOrderBook",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetOrderBook",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод запроса статуса торгов по инструментам.
         pub async fn get_trading_status(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTradingStatusRequest>,
-        ) -> Result<tonic::Response<super::GetTradingStatusResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetTradingStatusResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatus",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetTradingStatus",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод запроса статуса торгов по инструментам.
         pub async fn get_trading_statuses(
             &mut self,
             request: impl tonic::IntoRequest<super::GetTradingStatusesRequest>,
-        ) -> Result<tonic::Response<super::GetTradingStatusesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetTradingStatusesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetTradingStatuses",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetTradingStatuses",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод запроса обезличенных сделок за последний час.
         pub async fn get_last_trades(
             &mut self,
             request: impl tonic::IntoRequest<super::GetLastTradesRequest>,
-        ) -> Result<tonic::Response<super::GetLastTradesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetLastTradesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetLastTrades",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetLastTrades",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод запроса цен закрытия торговой сессии по инструментам.
         pub async fn get_close_prices(
             &mut self,
             request: impl tonic::IntoRequest<super::GetClosePricesRequest>,
-        ) -> Result<tonic::Response<super::GetClosePricesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetClosePricesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataService/GetClosePrices",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataService",
+                        "GetClosePrices",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
 /// Generated client implementations.
 pub mod market_data_stream_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct MarketDataStreamServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -4382,7 +4902,7 @@ pub mod market_data_stream_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -4417,10 +4937,13 @@ pub mod market_data_stream_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
-            MarketDataStreamServiceClient::new(InterceptedService::new(inner, interceptor))
+            MarketDataStreamServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
         }
         /// Compress requests with the given encoding.
         ///
@@ -4437,49 +4960,83 @@ pub mod market_data_stream_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Bi-directional стрим предоставления биржевой информации.
         pub async fn market_data_stream(
             &mut self,
             request: impl tonic::IntoStreamingRequest<Message = super::MarketDataRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::MarketDataResponse>>,
             tonic::Status,
         > {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataStream",
             );
-            self.inner
-                .streaming(request.into_streaming_request(), path, codec)
-                .await
+            let mut req = request.into_streaming_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataStreamService",
+                        "MarketDataStream",
+                    ),
+                );
+            self.inner.streaming(req, path, codec).await
         }
         /// Server-side стрим предоставления биржевой информации.
         pub async fn market_data_server_side_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::MarketDataServerSideStreamRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::MarketDataResponse>>,
             tonic::Status,
         > {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.MarketDataStreamService/MarketDataServerSideStream",
             );
-            self.inner
-                .server_streaming(request.into_request(), path, codec)
-                .await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.MarketDataStreamService",
+                        "MarketDataServerSideStream",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
     }
 }
@@ -4597,7 +5154,17 @@ pub struct PortfolioRequest {
 }
 /// Nested message and enum types in `PortfolioRequest`.
 pub mod portfolio_request {
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
     #[repr(i32)]
     pub enum CurrencyRequest {
         /// Рубли
@@ -5056,7 +5623,9 @@ pub mod get_dividends_foreign_issuer_request {
     pub enum Payload {
         /// Объект запроса формирования отчёта.
         #[prost(message, tag = "1")]
-        GenerateDivForeignIssuerReport(super::GenerateDividendsForeignIssuerReportRequest),
+        GenerateDivForeignIssuerReport(
+            super::GenerateDividendsForeignIssuerReportRequest,
+        ),
         /// Объект запроса сформированного отчёта.
         #[prost(message, tag = "2")]
         GetDivForeignIssuerReport(super::GetDividendsForeignIssuerReportRequest),
@@ -5065,10 +5634,7 @@ pub mod get_dividends_foreign_issuer_request {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetDividendsForeignIssuerResponse {
-    #[prost(
-        oneof = "get_dividends_foreign_issuer_response::Payload",
-        tags = "1, 2"
-    )]
+    #[prost(oneof = "get_dividends_foreign_issuer_response::Payload", tags = "1, 2")]
     pub payload: ::core::option::Option<get_dividends_foreign_issuer_response::Payload>,
 }
 /// Nested message and enum types in `GetDividendsForeignIssuerResponse`.
@@ -5078,7 +5644,9 @@ pub mod get_dividends_foreign_issuer_response {
     pub enum Payload {
         /// Объект результата задачи запуска формирования отчёта.
         #[prost(message, tag = "1")]
-        GenerateDivForeignIssuerReportResponse(super::GenerateDividendsForeignIssuerReportResponse),
+        GenerateDivForeignIssuerReportResponse(
+            super::GenerateDividendsForeignIssuerReportResponse,
+        ),
         /// Отчёт "Справка о доходах за пределами РФ".
         #[prost(message, tag = "2")]
         DivForeignIssuerReport(super::GetDividendsForeignIssuerReportResponse),
@@ -5121,7 +5689,9 @@ pub struct GenerateDividendsForeignIssuerReportResponse {
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetDividendsForeignIssuerReportResponse {
     #[prost(message, repeated, tag = "1")]
-    pub dividends_foreign_issuer_report: ::prost::alloc::vec::Vec<DividendsForeignIssuerReport>,
+    pub dividends_foreign_issuer_report: ::prost::alloc::vec::Vec<
+        DividendsForeignIssuerReport,
+    >,
     /// Количество записей в отчете.
     #[prost(int32, tag = "2")]
     pub items_count: i32,
@@ -5682,15 +6252,25 @@ impl OperationType {
             OperationType::TrackPfee => "OPERATION_TYPE_TRACK_PFEE",
             OperationType::TaxProgressive => "OPERATION_TYPE_TAX_PROGRESSIVE",
             OperationType::BondTaxProgressive => "OPERATION_TYPE_BOND_TAX_PROGRESSIVE",
-            OperationType::DividendTaxProgressive => "OPERATION_TYPE_DIVIDEND_TAX_PROGRESSIVE",
-            OperationType::BenefitTaxProgressive => "OPERATION_TYPE_BENEFIT_TAX_PROGRESSIVE",
-            OperationType::TaxCorrectionProgressive => "OPERATION_TYPE_TAX_CORRECTION_PROGRESSIVE",
+            OperationType::DividendTaxProgressive => {
+                "OPERATION_TYPE_DIVIDEND_TAX_PROGRESSIVE"
+            }
+            OperationType::BenefitTaxProgressive => {
+                "OPERATION_TYPE_BENEFIT_TAX_PROGRESSIVE"
+            }
+            OperationType::TaxCorrectionProgressive => {
+                "OPERATION_TYPE_TAX_CORRECTION_PROGRESSIVE"
+            }
             OperationType::TaxRepoProgressive => "OPERATION_TYPE_TAX_REPO_PROGRESSIVE",
             OperationType::TaxRepo => "OPERATION_TYPE_TAX_REPO",
             OperationType::TaxRepoHold => "OPERATION_TYPE_TAX_REPO_HOLD",
             OperationType::TaxRepoRefund => "OPERATION_TYPE_TAX_REPO_REFUND",
-            OperationType::TaxRepoHoldProgressive => "OPERATION_TYPE_TAX_REPO_HOLD_PROGRESSIVE",
-            OperationType::TaxRepoRefundProgressive => "OPERATION_TYPE_TAX_REPO_REFUND_PROGRESSIVE",
+            OperationType::TaxRepoHoldProgressive => {
+                "OPERATION_TYPE_TAX_REPO_HOLD_PROGRESSIVE"
+            }
+            OperationType::TaxRepoRefundProgressive => {
+                "OPERATION_TYPE_TAX_REPO_REFUND_PROGRESSIVE"
+            }
             OperationType::DivExt => "OPERATION_TYPE_DIV_EXT",
             OperationType::TaxCorrectionCoupon => "OPERATION_TYPE_TAX_CORRECTION_COUPON",
             OperationType::CashFee => "OPERATION_TYPE_CASH_FEE",
@@ -5749,15 +6329,23 @@ impl OperationType {
             "OPERATION_TYPE_TRACK_PFEE" => Some(Self::TrackPfee),
             "OPERATION_TYPE_TAX_PROGRESSIVE" => Some(Self::TaxProgressive),
             "OPERATION_TYPE_BOND_TAX_PROGRESSIVE" => Some(Self::BondTaxProgressive),
-            "OPERATION_TYPE_DIVIDEND_TAX_PROGRESSIVE" => Some(Self::DividendTaxProgressive),
+            "OPERATION_TYPE_DIVIDEND_TAX_PROGRESSIVE" => {
+                Some(Self::DividendTaxProgressive)
+            }
             "OPERATION_TYPE_BENEFIT_TAX_PROGRESSIVE" => Some(Self::BenefitTaxProgressive),
-            "OPERATION_TYPE_TAX_CORRECTION_PROGRESSIVE" => Some(Self::TaxCorrectionProgressive),
+            "OPERATION_TYPE_TAX_CORRECTION_PROGRESSIVE" => {
+                Some(Self::TaxCorrectionProgressive)
+            }
             "OPERATION_TYPE_TAX_REPO_PROGRESSIVE" => Some(Self::TaxRepoProgressive),
             "OPERATION_TYPE_TAX_REPO" => Some(Self::TaxRepo),
             "OPERATION_TYPE_TAX_REPO_HOLD" => Some(Self::TaxRepoHold),
             "OPERATION_TYPE_TAX_REPO_REFUND" => Some(Self::TaxRepoRefund),
-            "OPERATION_TYPE_TAX_REPO_HOLD_PROGRESSIVE" => Some(Self::TaxRepoHoldProgressive),
-            "OPERATION_TYPE_TAX_REPO_REFUND_PROGRESSIVE" => Some(Self::TaxRepoRefundProgressive),
+            "OPERATION_TYPE_TAX_REPO_HOLD_PROGRESSIVE" => {
+                Some(Self::TaxRepoHoldProgressive)
+            }
+            "OPERATION_TYPE_TAX_REPO_REFUND_PROGRESSIVE" => {
+                Some(Self::TaxRepoRefundProgressive)
+            }
             "OPERATION_TYPE_DIV_EXT" => Some(Self::DivExt),
             "OPERATION_TYPE_TAX_CORRECTION_COUPON" => Some(Self::TaxCorrectionCoupon),
             "OPERATION_TYPE_CASH_FEE" => Some(Self::CashFee),
@@ -5801,8 +6389,12 @@ impl PortfolioSubscriptionStatus {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            PortfolioSubscriptionStatus::Unspecified => "PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED",
-            PortfolioSubscriptionStatus::Success => "PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS",
+            PortfolioSubscriptionStatus::Unspecified => {
+                "PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED"
+            }
+            PortfolioSubscriptionStatus::Success => {
+                "PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS"
+            }
             PortfolioSubscriptionStatus::AccountNotFound => {
                 "PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND"
             }
@@ -5816,7 +6408,9 @@ impl PortfolioSubscriptionStatus {
         match value {
             "PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
             "PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS" => Some(Self::Success),
-            "PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND" => Some(Self::AccountNotFound),
+            "PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND" => {
+                Some(Self::AccountNotFound)
+            }
             "PORTFOLIO_SUBSCRIPTION_STATUS_INTERNAL_ERROR" => Some(Self::InternalError),
             _ => None,
         }
@@ -5878,8 +6472,8 @@ impl PositionsAccountSubscriptionStatus {
 /// Generated client implementations.
 pub mod operations_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct OperationsServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -5888,7 +6482,7 @@ pub mod operations_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -5923,8 +6517,9 @@ pub mod operations_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             OperationsServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -5943,135 +6538,248 @@ pub mod operations_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод получения списка операций по счёту.При работе с данным методом необходимо учитывать
         /// [особенности взаимодействия](/investAPI/operations_problems) с данным методом.
         pub async fn get_operations(
             &mut self,
             request: impl tonic::IntoRequest<super::OperationsRequest>,
-        ) -> Result<tonic::Response<super::OperationsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::OperationsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetOperations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения портфеля по счёту.
         pub async fn get_portfolio(
             &mut self,
             request: impl tonic::IntoRequest<super::PortfolioRequest>,
-        ) -> Result<tonic::Response<super::PortfolioResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PortfolioResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetPortfolio",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetPortfolio",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка позиций по счёту.
         pub async fn get_positions(
             &mut self,
             request: impl tonic::IntoRequest<super::PositionsRequest>,
-        ) -> Result<tonic::Response<super::PositionsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PositionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetPositions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetPositions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения доступного остатка для вывода средств.
         pub async fn get_withdraw_limits(
             &mut self,
             request: impl tonic::IntoRequest<super::WithdrawLimitsRequest>,
-        ) -> Result<tonic::Response<super::WithdrawLimitsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::WithdrawLimitsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetWithdrawLimits",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetWithdrawLimits",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения брокерского отчёта.
         pub async fn get_broker_report(
             &mut self,
             request: impl tonic::IntoRequest<super::BrokerReportRequest>,
-        ) -> Result<tonic::Response<super::BrokerReportResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::BrokerReportResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetBrokerReport",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetBrokerReport",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения отчёта "Справка о доходах за пределами РФ".
         pub async fn get_dividends_foreign_issuer(
             &mut self,
             request: impl tonic::IntoRequest<super::GetDividendsForeignIssuerRequest>,
-        ) -> Result<tonic::Response<super::GetDividendsForeignIssuerResponse>, tonic::Status>
-        {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetDividendsForeignIssuerResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetDividendsForeignIssuer",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetDividendsForeignIssuer",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка операций по счёту с пагинацией. При работе с данным методом необходимо учитывать
         /// [особенности взаимодействия](/investAPI/operations_problems) с данным методом.
         pub async fn get_operations_by_cursor(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOperationsByCursorRequest>,
-        ) -> Result<tonic::Response<super::GetOperationsByCursorResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetOperationsByCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsService/GetOperationsByCursor",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsService",
+                        "GetOperationsByCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
 /// Generated client implementations.
 pub mod operations_stream_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct OperationsStreamServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -6080,7 +6788,7 @@ pub mod operations_stream_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -6115,10 +6823,13 @@ pub mod operations_stream_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
-            OperationsStreamServiceClient::new(InterceptedService::new(inner, interceptor))
+            OperationsStreamServiceClient::new(
+                InterceptedService::new(inner, interceptor),
+            )
         }
         /// Compress requests with the given encoding.
         ///
@@ -6135,49 +6846,83 @@ pub mod operations_stream_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Server-side stream обновлений портфеля
         pub async fn portfolio_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::PortfolioStreamRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PortfolioStreamResponse>>,
             tonic::Status,
         > {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PortfolioStream",
             );
-            self.inner
-                .server_streaming(request.into_request(), path, codec)
-                .await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsStreamService",
+                        "PortfolioStream",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
         /// Server-side stream обновлений информации по изменению позиций портфеля
         pub async fn positions_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::PositionsStreamRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::PositionsStreamResponse>>,
             tonic::Status,
         > {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PositionsStream",
             );
-            self.inner
-                .server_streaming(request.into_request(), path, codec)
-                .await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OperationsStreamService",
+                        "PositionsStream",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
     }
 }
@@ -6301,7 +7046,7 @@ pub struct PostOrderResponse {
     /// Начальная цена заявки. Произведение количества запрошенных лотов на цену.
     #[prost(message, optional, tag = "5")]
     pub initial_order_price: ::core::option::Option<MoneyValue>,
-    /// Исполненная средняя цена 1 одного инструмента в заявки.
+    /// Исполненная средняя цена одного инструмента в заявке.
     #[prost(message, optional, tag = "6")]
     pub executed_order_price: ::core::option::Option<MoneyValue>,
     /// Итоговая стоимость заявки, включающая все комиссии.
@@ -6582,14 +7327,18 @@ impl OrderExecutionReportStatus {
             OrderExecutionReportStatus::ExecutionReportStatusUnspecified => {
                 "EXECUTION_REPORT_STATUS_UNSPECIFIED"
             }
-            OrderExecutionReportStatus::ExecutionReportStatusFill => "EXECUTION_REPORT_STATUS_FILL",
+            OrderExecutionReportStatus::ExecutionReportStatusFill => {
+                "EXECUTION_REPORT_STATUS_FILL"
+            }
             OrderExecutionReportStatus::ExecutionReportStatusRejected => {
                 "EXECUTION_REPORT_STATUS_REJECTED"
             }
             OrderExecutionReportStatus::ExecutionReportStatusCancelled => {
                 "EXECUTION_REPORT_STATUS_CANCELLED"
             }
-            OrderExecutionReportStatus::ExecutionReportStatusNew => "EXECUTION_REPORT_STATUS_NEW",
+            OrderExecutionReportStatus::ExecutionReportStatusNew => {
+                "EXECUTION_REPORT_STATUS_NEW"
+            }
             OrderExecutionReportStatus::ExecutionReportStatusPartiallyfill => {
                 "EXECUTION_REPORT_STATUS_PARTIALLYFILL"
             }
@@ -6598,10 +7347,16 @@ impl OrderExecutionReportStatus {
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "EXECUTION_REPORT_STATUS_UNSPECIFIED" => Some(Self::ExecutionReportStatusUnspecified),
+            "EXECUTION_REPORT_STATUS_UNSPECIFIED" => {
+                Some(Self::ExecutionReportStatusUnspecified)
+            }
             "EXECUTION_REPORT_STATUS_FILL" => Some(Self::ExecutionReportStatusFill),
-            "EXECUTION_REPORT_STATUS_REJECTED" => Some(Self::ExecutionReportStatusRejected),
-            "EXECUTION_REPORT_STATUS_CANCELLED" => Some(Self::ExecutionReportStatusCancelled),
+            "EXECUTION_REPORT_STATUS_REJECTED" => {
+                Some(Self::ExecutionReportStatusRejected)
+            }
+            "EXECUTION_REPORT_STATUS_CANCELLED" => {
+                Some(Self::ExecutionReportStatusCancelled)
+            }
             "EXECUTION_REPORT_STATUS_NEW" => Some(Self::ExecutionReportStatusNew),
             "EXECUTION_REPORT_STATUS_PARTIALLYFILL" => {
                 Some(Self::ExecutionReportStatusPartiallyfill)
@@ -6646,8 +7401,8 @@ impl PriceType {
 /// Generated client implementations.
 pub mod orders_stream_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct OrdersStreamServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -6656,7 +7411,7 @@ pub mod orders_stream_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -6691,8 +7446,9 @@ pub mod orders_stream_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             OrdersStreamServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -6711,35 +7467,60 @@ pub mod orders_stream_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Stream сделок пользователя
         pub async fn trades_stream(
             &mut self,
             request: impl tonic::IntoRequest<super::TradesStreamRequest>,
-        ) -> Result<
+        ) -> std::result::Result<
             tonic::Response<tonic::codec::Streaming<super::TradesStreamResponse>>,
             tonic::Status,
         > {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersStreamService/TradesStream",
             );
-            self.inner
-                .server_streaming(request.into_request(), path, codec)
-                .await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersStreamService",
+                        "TradesStream",
+                    ),
+                );
+            self.inner.server_streaming(req, path, codec).await
         }
     }
 }
 /// Generated client implementations.
 pub mod orders_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct OrdersServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -6748,7 +7529,7 @@ pub mod orders_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -6783,8 +7564,9 @@ pub mod orders_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             OrdersServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -6803,90 +7585,173 @@ pub mod orders_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод выставления заявки.
         pub async fn post_order(
             &mut self,
             request: impl tonic::IntoRequest<super::PostOrderRequest>,
-        ) -> Result<tonic::Response<super::PostOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PostOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersService/PostOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersService",
+                        "PostOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод отмены биржевой заявки.
         pub async fn cancel_order(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelOrderRequest>,
-        ) -> Result<tonic::Response<super::CancelOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CancelOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersService/CancelOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersService",
+                        "CancelOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения статуса торгового поручения.
         pub async fn get_order_state(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOrderStateRequest>,
-        ) -> Result<tonic::Response<super::OrderState>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::OrderState>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrderState",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersService",
+                        "GetOrderState",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка активных заявок по счёту.
         pub async fn get_orders(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOrdersRequest>,
-        ) -> Result<tonic::Response<super::GetOrdersResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetOrdersResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersService/GetOrders",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersService",
+                        "GetOrders",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод изменения выставленной заявки.
         pub async fn replace_order(
             &mut self,
             request: impl tonic::IntoRequest<super::ReplaceOrderRequest>,
-        ) -> Result<tonic::Response<super::PostOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PostOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.OrdersService/ReplaceOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.OrdersService",
+                        "ReplaceOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -7013,9 +7878,11 @@ pub struct GetInfoResponse {
     /// Признак квалифицированного инвестора.
     #[prost(bool, tag = "2")]
     pub qual_status: bool,
-    /// Набор требующих тестирования инструментов и возможностей, с которыми может работать пользователь. \[Подробнее\](<https://tinkoff.github.io/investAPI/faq_users/>).
+    /// Набор требующих тестирования инструментов и возможностей, с которыми может работать пользователь. [Подробнее](<https://tinkoff.github.io/investAPI/faq_users/>).
     #[prost(string, repeated, tag = "3")]
-    pub qualified_for_work_with: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub qualified_for_work_with: ::prost::alloc::vec::Vec<
+        ::prost::alloc::string::String,
+    >,
     /// Наименование тарифа пользователя.
     #[prost(string, tag = "4")]
     pub tariff: ::prost::alloc::string::String,
@@ -7114,8 +7981,12 @@ impl AccessLevel {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            AccessLevel::AccountAccessLevelUnspecified => "ACCOUNT_ACCESS_LEVEL_UNSPECIFIED",
-            AccessLevel::AccountAccessLevelFullAccess => "ACCOUNT_ACCESS_LEVEL_FULL_ACCESS",
+            AccessLevel::AccountAccessLevelUnspecified => {
+                "ACCOUNT_ACCESS_LEVEL_UNSPECIFIED"
+            }
+            AccessLevel::AccountAccessLevelFullAccess => {
+                "ACCOUNT_ACCESS_LEVEL_FULL_ACCESS"
+            }
             AccessLevel::AccountAccessLevelReadOnly => "ACCOUNT_ACCESS_LEVEL_READ_ONLY",
             AccessLevel::AccountAccessLevelNoAccess => "ACCOUNT_ACCESS_LEVEL_NO_ACCESS",
         }
@@ -7123,8 +7994,12 @@ impl AccessLevel {
     /// Creates an enum from field names used in the ProtoBuf definition.
     pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
         match value {
-            "ACCOUNT_ACCESS_LEVEL_UNSPECIFIED" => Some(Self::AccountAccessLevelUnspecified),
-            "ACCOUNT_ACCESS_LEVEL_FULL_ACCESS" => Some(Self::AccountAccessLevelFullAccess),
+            "ACCOUNT_ACCESS_LEVEL_UNSPECIFIED" => {
+                Some(Self::AccountAccessLevelUnspecified)
+            }
+            "ACCOUNT_ACCESS_LEVEL_FULL_ACCESS" => {
+                Some(Self::AccountAccessLevelFullAccess)
+            }
             "ACCOUNT_ACCESS_LEVEL_READ_ONLY" => Some(Self::AccountAccessLevelReadOnly),
             "ACCOUNT_ACCESS_LEVEL_NO_ACCESS" => Some(Self::AccountAccessLevelNoAccess),
             _ => None,
@@ -7134,8 +8009,8 @@ impl AccessLevel {
 /// Generated client implementations.
 pub mod users_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct UsersServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -7144,7 +8019,7 @@ pub mod users_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -7179,8 +8054,9 @@ pub mod users_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             UsersServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -7199,73 +8075,145 @@ pub mod users_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод получения счетов пользователя.
         pub async fn get_accounts(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAccountsRequest>,
-        ) -> Result<tonic::Response<super::GetAccountsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetAccountsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.UsersService/GetAccounts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.UsersService",
+                        "GetAccounts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Расчёт маржинальных показателей по счёту.
         pub async fn get_margin_attributes(
             &mut self,
             request: impl tonic::IntoRequest<super::GetMarginAttributesRequest>,
-        ) -> Result<tonic::Response<super::GetMarginAttributesResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetMarginAttributesResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.UsersService/GetMarginAttributes",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.UsersService",
+                        "GetMarginAttributes",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Запрос тарифа пользователя.
         pub async fn get_user_tariff(
             &mut self,
             request: impl tonic::IntoRequest<super::GetUserTariffRequest>,
-        ) -> Result<tonic::Response<super::GetUserTariffResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetUserTariffResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.UsersService/GetUserTariff",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.UsersService",
+                        "GetUserTariff",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения информации о пользователе.
         pub async fn get_info(
             &mut self,
             request: impl tonic::IntoRequest<super::GetInfoRequest>,
-        ) -> Result<tonic::Response<super::GetInfoResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetInfoResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.UsersService/GetInfo",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.UsersService",
+                        "GetInfo",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -7319,8 +8267,8 @@ pub struct SandboxPayInResponse {
 /// Generated client implementations.
 pub mod sandbox_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct SandboxServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -7329,7 +8277,7 @@ pub mod sandbox_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -7364,8 +8312,9 @@ pub mod sandbox_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             SandboxServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -7384,243 +8333,452 @@ pub mod sandbox_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод регистрации счёта в песочнице.
         pub async fn open_sandbox_account(
             &mut self,
             request: impl tonic::IntoRequest<super::OpenSandboxAccountRequest>,
-        ) -> Result<tonic::Response<super::OpenSandboxAccountResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::OpenSandboxAccountResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/OpenSandboxAccount",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "OpenSandboxAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения счетов в песочнице.
         pub async fn get_sandbox_accounts(
             &mut self,
             request: impl tonic::IntoRequest<super::GetAccountsRequest>,
-        ) -> Result<tonic::Response<super::GetAccountsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetAccountsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxAccounts",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxAccounts",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод закрытия счёта в песочнице.
         pub async fn close_sandbox_account(
             &mut self,
             request: impl tonic::IntoRequest<super::CloseSandboxAccountRequest>,
-        ) -> Result<tonic::Response<super::CloseSandboxAccountResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CloseSandboxAccountResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/CloseSandboxAccount",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "CloseSandboxAccount",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод выставления торгового поручения в песочнице.
         pub async fn post_sandbox_order(
             &mut self,
             request: impl tonic::IntoRequest<super::PostOrderRequest>,
-        ) -> Result<tonic::Response<super::PostOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PostOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/PostSandboxOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "PostSandboxOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод изменения выставленной заявки.
         pub async fn replace_sandbox_order(
             &mut self,
             request: impl tonic::IntoRequest<super::ReplaceOrderRequest>,
-        ) -> Result<tonic::Response<super::PostOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PostOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/ReplaceSandboxOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "ReplaceSandboxOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка активных заявок по счёту в песочнице.
         pub async fn get_sandbox_orders(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOrdersRequest>,
-        ) -> Result<tonic::Response<super::GetOrdersResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetOrdersResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrders",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxOrders",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод отмены торгового поручения в песочнице.
         pub async fn cancel_sandbox_order(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelOrderRequest>,
-        ) -> Result<tonic::Response<super::CancelOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CancelOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/CancelSandboxOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "CancelSandboxOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения статуса заявки в песочнице. Заявки хранятся в таблице 7 дней.
         pub async fn get_sandbox_order_state(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOrderStateRequest>,
-        ) -> Result<tonic::Response<super::OrderState>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<tonic::Response<super::OrderState>, tonic::Status> {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOrderState",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxOrderState",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения позиций по виртуальному счёту песочницы.
         pub async fn get_sandbox_positions(
             &mut self,
             request: impl tonic::IntoRequest<super::PositionsRequest>,
-        ) -> Result<tonic::Response<super::PositionsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PositionsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPositions",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxPositions",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения операций в песочнице по номеру счёта.
         pub async fn get_sandbox_operations(
             &mut self,
             request: impl tonic::IntoRequest<super::OperationsRequest>,
-        ) -> Result<tonic::Response<super::OperationsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::OperationsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperations",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxOperations",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения операций в песочнице по номеру счета с пагинацией.
         pub async fn get_sandbox_operations_by_cursor(
             &mut self,
             request: impl tonic::IntoRequest<super::GetOperationsByCursorRequest>,
-        ) -> Result<tonic::Response<super::GetOperationsByCursorResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetOperationsByCursorResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxOperationsByCursor",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxOperationsByCursor",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения портфолио в песочнице.
         pub async fn get_sandbox_portfolio(
             &mut self,
             request: impl tonic::IntoRequest<super::PortfolioRequest>,
-        ) -> Result<tonic::Response<super::PortfolioResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PortfolioResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxPortfolio",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxPortfolio",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод пополнения счёта в песочнице.
         pub async fn sandbox_pay_in(
             &mut self,
             request: impl tonic::IntoRequest<super::SandboxPayInRequest>,
-        ) -> Result<tonic::Response<super::SandboxPayInResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::SandboxPayInResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/SandboxPayIn",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "SandboxPayIn",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения доступного остатка для вывода средств в песочнице.
         pub async fn get_sandbox_withdraw_limits(
             &mut self,
             request: impl tonic::IntoRequest<super::WithdrawLimitsRequest>,
-        ) -> Result<tonic::Response<super::WithdrawLimitsResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::WithdrawLimitsResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.SandboxService/GetSandboxWithdrawLimits",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.SandboxService",
+                        "GetSandboxWithdrawLimits",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
@@ -7795,11 +8953,15 @@ impl StopOrderExpirationType {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            StopOrderExpirationType::Unspecified => "STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED",
+            StopOrderExpirationType::Unspecified => {
+                "STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED"
+            }
             StopOrderExpirationType::GoodTillCancel => {
                 "STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL"
             }
-            StopOrderExpirationType::GoodTillDate => "STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE",
+            StopOrderExpirationType::GoodTillDate => {
+                "STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE"
+            }
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -7852,8 +9014,8 @@ impl StopOrderType {
 /// Generated client implementations.
 pub mod stop_orders_service_client {
     #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
-    use tonic::codegen::http::Uri;
     use tonic::codegen::*;
+    use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
     pub struct StopOrdersServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -7862,7 +9024,7 @@ pub mod stop_orders_service_client {
         /// Attempt to create a new client by connecting to a given endpoint.
         pub async fn connect<D>(dst: D) -> Result<Self, tonic::transport::Error>
         where
-            D: std::convert::TryInto<tonic::transport::Endpoint>,
+            D: TryInto<tonic::transport::Endpoint>,
             D::Error: Into<StdError>,
         {
             let conn = tonic::transport::Endpoint::new(dst)?.connect().await?;
@@ -7897,8 +9059,9 @@ pub mod stop_orders_service_client {
                     <T as tonic::client::GrpcService<tonic::body::BoxBody>>::ResponseBody,
                 >,
             >,
-            <T as tonic::codegen::Service<http::Request<tonic::body::BoxBody>>>::Error:
-                Into<StdError> + Send + Sync,
+            <T as tonic::codegen::Service<
+                http::Request<tonic::body::BoxBody>,
+            >>::Error: Into<StdError> + Send + Sync,
         {
             StopOrdersServiceClient::new(InterceptedService::new(inner, interceptor))
         }
@@ -7917,56 +9080,114 @@ pub mod stop_orders_service_client {
             self.inner = self.inner.accept_compressed(encoding);
             self
         }
+        /// Limits the maximum size of a decoded message.
+        ///
+        /// Default: `4MB`
+        #[must_use]
+        pub fn max_decoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_decoding_message_size(limit);
+            self
+        }
+        /// Limits the maximum size of an encoded message.
+        ///
+        /// Default: `usize::MAX`
+        #[must_use]
+        pub fn max_encoding_message_size(mut self, limit: usize) -> Self {
+            self.inner = self.inner.max_encoding_message_size(limit);
+            self
+        }
         /// Метод выставления стоп-заявки.
         pub async fn post_stop_order(
             &mut self,
             request: impl tonic::IntoRequest<super::PostStopOrderRequest>,
-        ) -> Result<tonic::Response<super::PostStopOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::PostStopOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.StopOrdersService/PostStopOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.StopOrdersService",
+                        "PostStopOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод получения списка активных стоп заявок по счёту.
         pub async fn get_stop_orders(
             &mut self,
             request: impl tonic::IntoRequest<super::GetStopOrdersRequest>,
-        ) -> Result<tonic::Response<super::GetStopOrdersResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::GetStopOrdersResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.StopOrdersService/GetStopOrders",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.StopOrdersService",
+                        "GetStopOrders",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
         /// Метод отмены стоп-заявки.
         pub async fn cancel_stop_order(
             &mut self,
             request: impl tonic::IntoRequest<super::CancelStopOrderRequest>,
-        ) -> Result<tonic::Response<super::CancelStopOrderResponse>, tonic::Status> {
-            self.inner.ready().await.map_err(|e| {
-                tonic::Status::new(
-                    tonic::Code::Unknown,
-                    format!("Service was not ready: {}", e.into()),
-                )
-            })?;
+        ) -> std::result::Result<
+            tonic::Response<super::CancelStopOrderResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::new(
+                        tonic::Code::Unknown,
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
             let codec = tonic::codec::ProstCodec::default();
             let path = http::uri::PathAndQuery::from_static(
                 "/tinkoff.public.invest.api.contract.v1.StopOrdersService/CancelStopOrder",
             );
-            self.inner.unary(request.into_request(), path, codec).await
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new(
+                        "tinkoff.public.invest.api.contract.v1.StopOrdersService",
+                        "CancelStopOrder",
+                    ),
+                );
+            self.inner.unary(req, path, codec).await
         }
     }
 }
