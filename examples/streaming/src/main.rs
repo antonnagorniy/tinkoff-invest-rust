@@ -27,7 +27,7 @@ async fn main() -> TIResult<()> {
         payload: Some(Payload::SubscribeCandlesRequest(SubscribeCandlesRequest {
             subscription_action: SubscriptionAction::Subscribe as i32,
             instruments: vec![CandleInstrument {
-                figi: "BBG00YFSF9D7".to_string(),
+                figi: "BBG004S68758".to_string(),
                 interval: SubscriptionInterval::OneMinute as i32,
                 instrument_id: "figi".to_string(),
             }],
